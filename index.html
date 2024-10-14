@@ -13,11 +13,56 @@
     </header>
     <main>
         <h2>Yeni Dosya Ekleme</h2>
-        <p>Aşağıdaki bağlantıyı kullanarak yeni dosyalar ekleyebilirsiniz.</p>
-        <a href="yeni-dosya.html">Yeni Dosya Oluştur</a>
+        <form id="fileForm">
+            <label for="fileName">Dosya Adı:</label>
+            <input type="text" id="fileName" required>
+            <br>
+            <label for="fileContent">Dosya İçeriği:</label>
+            <textarea id="fileContent" required></textarea>
+            <br>
+            <button type="submit">Ekle</button>
+        </form>
+        <div id="responseMessage"></div>
     </main>
     <footer>
         <p>Telif Hakkı © 2024</p>
     </footer>
+
+    <script>
+        const form = document.getElementById('fileForm');
+        const responseMessage = document.getElementById('responseMessage');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const fileName = document.getElementById('fileName').value;
+            const fileContent = document.getElementById('fileContent').value;
+
+            // GitHub API URL
+            const url = `https://api.github.com/repos/YOUR_USERNAME/YOUR_REPO/contents/${fileName}`;
+
+            // GitHub API için gerekli bilgiler
+            const token = 'YOUR_GITHUB_TOKEN'; // GitHub Tokenınızı buraya ekleyin
+
+            const response = await fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `token ${token}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    message: `Yeni dosya eklendi: ${fileName}`,
+                    content: btoa(fileContent) // İçeriği Base64 formatına çevir
+                }),
+            });
+
+            if (response.ok) {
+                responseMessage.textContent = 'Dosya başarıyla eklendi!';
+                form.reset();
+            } else {
+                responseMessage.textContent = 'Hata: Dosya eklenemedi.';
+            }
+        });
+    </script>
 </body>
 </html>
