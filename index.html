@@ -3,129 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wi-Fi Ayarları</title>
+    <title>iOS Ayarları</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #f0f0f5;
+            background-color: #f5f5f5;
             margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            height: 100vh;
-        }
-        .header {
-            width: 100%;
-            background-color: #ffffff;
             padding: 20px;
-            display: flex;
-            justify-content: flex-start; /* Başlangıçta sola yasla */
-            align-items: center;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
         }
-        .header span {
-            font-weight: bold; /* Kalın font */
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h2 {
+            font-weight: bold;
+            margin: 0;
         }
         .toggle {
-            width: 50px;
-            height: 30px;
-            background-color: #e0e0e0; /* Başlangıçta gri */
-            border-radius: 15px;
-            position: relative;
+            display: inline-block;
+            margin-left: 10px;
             cursor: pointer;
-            margin-left: 10px; /* Başlık ile arası */
-        }
-        .toggle.active {
-            background-color: #4cd964; /* Aktif olduğunda yeşil */
-        }
-        .toggle::before {
-            content: '';
-            width: 26px;
-            height: 26px;
-            background-color: white;
-            border-radius: 50%;
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            transition: 0.3s;
-        }
-        .toggle.active::before {
-            left: 22px; /* Aktif olduğunda sağa kaydır */
-        }
-        .center {
-            margin-top: 80px; /* Başlık yüksekliğini hesaba kat */
-            font-size: 24px;
-            color: #333;
         }
         .message-box {
             display: none;
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
+            background: #e7f3fe;
+            border-left: 6px solid #2196F3;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
         }
         .button {
-            background-color: #007aff;
+            background-color: #007AFF;
             color: white;
+            padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            padding: 10px 20px;
             cursor: pointer;
-            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <span>Wi-Fi</span>
-        <div class="toggle" onclick="toggleWiFi()"></div>
+<div class="container">
+    <h2>🌐 WiFi</h2>
+    <label class="toggle">
+        <input type="checkbox" id="wifiToggle"> Aktif
+    </label>
+    <div id="wifiMessage" class="message-box">
+        WiFi bulunamıyor, cihaz güzelliğiniz dolayısıyla aklını kaybetmiş :)
+        <button class="button" onclick="closeMessage('wifiMessage')">Tamam</button>
     </div>
-
-    <div class="center">Wi-Fi Aranıyor...</div>
-
-    <div class="message-box" id="message1">
-        <p>İlk Wi-Fi bulundu!</p>
-        <button class="button" onclick="showSecondMessage()">Tamam</button>
+    
+    <h2>🌸 Çiçek Diyarı</h2>
+    <label class="toggle">
+        <input type="checkbox" id="flowerToggle"> Aktif
+    </label>
+    <div id="flowerMessage" class="message-box">
+        Siz varken başka çiçek bulunamadı :) 💐🌹
+        <button class="button" onclick="closeMessage('flowerMessage')">Tamam</button>
     </div>
+</div>
 
-    <div class="message-box" id="message2">
-        <p>Wi-Fi bulundu ama sizden güzeli bulunamadı :) ❤️❤️❤️❤️❤️</p>
-        <button class="button" onclick="closeMessages()">Kabul Ediyorum</button>
-    </div>
+<script>
+    document.getElementById('wifiToggle').addEventListener('change', function() {
+        const messageBox = document.getElementById('wifiMessage');
+        messageBox.style.display = this.checked ? 'block' : 'none';
+    });
 
-    <script>
-        // İlk mesaj kutusunu göster
-        setTimeout(() => {
-            document.getElementById('message1').style.display = 'block';
-        }, 3000); // 3 saniye sonra göster
+    document.getElementById('flowerToggle').addEventListener('change', function() {
+        const messageBox = document.getElementById('flowerMessage');
+        messageBox.style.display = this.checked ? 'block' : 'none';
+    });
 
-        function showSecondMessage() {
-            document.getElementById('message1').style.display = 'none';
-            document.getElementById('message2').style.display = 'block';
-        }
-
-        function closeMessages() {
-            document.getElementById('message2').style.display = 'none';
-            // Tarayıcıya mesaj vermeyecek
-        }
-
-        function toggleWiFi() {
-            const toggle = document.querySelector('.toggle');
-            toggle.classList.toggle('active'); // Toggle durumunu değiştir
-        }
-    </script>
+    function closeMessage(id) {
+        document.getElementById(id).style.display = 'none';
+        document.querySelector(`#${id.replace('Message', 'Toggle')}`).checked = false;
+    }
+</script>
 
 </body>
 </html>
-
