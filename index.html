@@ -1,1 +1,131 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wi-Fi Ayarları</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f0f0f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+        }
+        .header {
+            width: 100%;
+            background-color: #ffffff;
+            padding: 20px;
+            display: flex;
+            justify-content: flex-start; /* Başlangıçta sola yasla */
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        .header span {
+            font-weight: bold; /* Kalın font */
+        }
+        .toggle {
+            width: 50px;
+            height: 30px;
+            background-color: #e0e0e0; /* Başlangıçta gri */
+            border-radius: 15px;
+            position: relative;
+            cursor: pointer;
+            margin-left: 10px; /* Başlık ile arası */
+        }
+        .toggle.active {
+            background-color: #4cd964; /* Aktif olduğunda yeşil */
+        }
+        .toggle::before {
+            content: '';
+            width: 26px;
+            height: 26px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: 0.3s;
+        }
+        .toggle.active::before {
+            left: 22px; /* Aktif olduğunda sağa kaydır */
+        }
+        .center {
+            margin-top: 80px; /* Başlık yüksekliğini hesaba kat */
+            font-size: 24px;
+            color: #333;
+        }
+        .message-box {
+            display: none;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .button {
+            background-color: #007aff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <span>Wi-Fi</span>
+        <div class="toggle" onclick="toggleWiFi()"></div>
+    </div>
+
+    <div class="center">Wi-Fi Aranıyor...</div>
+
+    <div class="message-box" id="message1">
+        <p>İlk Wi-Fi bulundu!</p>
+        <button class="button" onclick="showSecondMessage()">Tamam</button>
+    </div>
+
+    <div class="message-box" id="message2">
+        <p>Wi-Fi bulundu ama sizden güzeli bulunamadı :) ❤️❤️❤️❤️❤️</p>
+        <button class="button" onclick="closeMessages()">Kabul Ediyorum</button>
+    </div>
+
+    <script>
+        // İlk mesaj kutusunu göster
+        setTimeout(() => {
+            document.getElementById('message1').style.display = 'block';
+        }, 3000); // 3 saniye sonra göster
+
+        function showSecondMessage() {
+            document.getElementById('message1').style.display = 'none';
+            document.getElementById('message2').style.display = 'block';
+        }
+
+        function closeMessages() {
+            document.getElementById('message2').style.display = 'none';
+            // Tarayıcıya mesaj vermeyecek
+        }
+
+        function toggleWiFi() {
+            const toggle = document.querySelector('.toggle');
+            toggle.classList.toggle('active'); // Toggle durumunu değiştir
+        }
+    </script>
+
+</body>
+</html>
 
