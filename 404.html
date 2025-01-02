@@ -5,47 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Sayfa Bulunamadı</title>
     <style>
-        @font-face {
-            font-family: 'Minecraftia';
-            src: url('Minecraftia.ttf') format('truetype'); /* Font dosyasının yolu */
-        }
+    @font-face {
+        font-family: 'Minecraftia';
+        src: url('Minecraftia.ttf') format('truetype'); /* Font dosyasının yolu */
+    }
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-            font-family: 'Minecraftia', sans-serif; /* Minecraftia fontu */
-            text-align: center;
-        }
-        .container {
-            display: flex;
-            align-items: center; /* Dikey ortalama */
-        }
-        img {
-            width: 200px; /* Kedinin boyutu */
-            height: auto; /* Yüksekliğin orantılı kalmasını sağla */
-            margin-right: 20px; /* Resim ile metin arasında boşluk */
-        }
-        h1 {
-            font-size: 3em;
-            color: #ff0000; /* Kırmızı renk */
-            margin: 0; /* Boşlukları sıfırla */
-        }
-        p {
-            font-size: 1.5em;
-            color: #333; /* Yazı rengi */
-            margin: 0; /* Boşlukları sıfırla */
-        }
-        a {
-            margin-top: 20px;
-            text-decoration: none;
-            color: #007bff; /* Link rengi */
-            font-size: 1.2em;
-        }
-    </style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+        font-family: 'Minecraftia', sans-serif; /* Minecraftia fontu */
+        text-align: center;
+    }
+    .container {
+        display: flex;
+        align-items: center; /* Dikey ortalama */
+        max-width: 90%; /* Maksimum genişlik ayarı */
+        overflow: hidden; /* Taşan içeriği gizle */
+    }
+    img {
+        width: 150px; /* Resmin boyutunu küçült */
+        height: auto; /* Yüksekliğin orantılı kalmasını sağla */
+        margin-right: 20px; /* Resim ile metin arasında boşluk */
+    }
+    h1 {
+        font-size: 2.5em; /* Başlık boyutunu ayarla */
+        color: #ff0000; /* Kırmızı renk */
+        margin: 0; /* Boşlukları sıfırla */
+    }
+    p {
+        font-size: 1.2em; /* Yazı boyutunu ayarla */
+        color: #333; /* Yazı rengi */
+        margin: 0; /* Boşlukları sıfırla */
+    }
+    a {
+        margin-top: 20px;
+        text-decoration: none;
+        color: #007bff; /* Link rengi */
+        font-size: 1em; /* Link boyutunu ayarla */
+    }
+</style>
+
 </head>
 <body>
     <div class="container">
