@@ -5,59 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Sayfa Bulunamadı</title>
     <style>
-    @font-face {
-        font-family: 'Minecraftia';
-        src: url('Minecraftia.ttf') format('truetype'); /* Font dosyasının yolu */
-    }
+        @font-face {
+            font-family: 'Minecraftia';
+            src: url('Minecraftia.ttf') format('truetype'); /* Font dosyasının yolu */
+        }
 
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        background-color: #f0f0f0;
-        font-family: 'Minecraftia', sans-serif; /* Minecraftia fontu */
-        text-align: center;
-    }
-    .container {
-        display: flex;
-        align-items: center; /* Dikey ortalama */
-        max-width: 90%; /* Maksimum genişlik ayarı */
-        overflow: hidden; /* Taşan içeriği gizle */
-    }
-    img {
-        width: 150px; /* Resmin boyutunu küçült */
-        height: auto; /* Yüksekliğin orantılı kalmasını sağla */
-        margin-right: 20px; /* Resim ile metin arasında boşluk */
-    }
-    h1 {
-        font-size: 2.5em; /* Başlık boyutunu ayarla */
-        color: #ff0000; /* Kırmızı renk */
-        margin: 0; /* Boşlukları sıfırla */
-    }
-    p {
-        font-size: 1.2em; /* Yazı boyutunu ayarla */
-        color: #333; /* Yazı rengi */
-        margin: 0; /* Boşlukları sıfırla */
-    }
-    a {
-        margin-top: 20px;
-        text-decoration: none;
-        color: #007bff; /* Link rengi */
-        font-size: 1em; /* Link boyutunu ayarla */
-    }
-</style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: 'Minecraftia', sans-serif; /* Minecraftia fontu */
+            text-align: center;
+            padding: 20px; /* Kenar boşluğu ekle */
+        }
 
+        .container {
+            display: flex;
+            flex-direction: column; /* Dikey düzen */
+            align-items: center; /* Ortala */
+            max-width: 90%; /* Maksimum genişlik ayarı */
+            overflow: hidden; /* Taşan içeriği gizle */
+        }
+
+        img {
+            width: 100%; /* Resmin genişliğini %100 yap */
+            max-width: 200px; /* Maksimum boyut */
+            height: auto; /* Yüksekliğin orantılı kalmasını sağla */
+            margin-bottom: 20px; /* Metin ile resim arasında boşluk */
+        }
+
+        h1 {
+            font-size: 2.5em; /* Başlık boyutunu ayarla */
+            color: #ff0000; /* Kırmızı renk */
+            margin: 0; /* Boşlukları sıfırla */
+        }
+
+        p {
+            font-size: 1.2em; /* Yazı boyutunu ayarla */
+            color: #333; /* Yazı rengi */
+            margin: 0; /* Boşlukları sıfırla */
+        }
+
+        a {
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff; /* Link rengi */
+            font-size: 1em; /* Link boyutunu ayarla */
+        }
+
+        /* Mobil cihazlar için ayarlamalar */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em; /* Daha küçük başlık boyutu */
+            }
+
+            p {
+                font-size: 1em; /* Daha küçük yazı boyutu */
+            }
+
+            img {
+                max-width: 150px; /* Mobilde daha küçük resim */
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <img src="https://i.gifer.com/28eN.gif" alt="Kedi GIF">
-        <div>
-            <h1>404 - Sayfa Bulunamadı</h1>
-            <p>Aradığınız sayfa mevcut değil.</p>
-            <a href="/">Ana Sayfaya Dön</a>
-        </div>
+        <h1>404 - Sayfa Bulunamadı</h1>
+        <p>Aradığınız sayfa mevcut değil.</p>
+        <a href="/">Ana Sayfaya Dön</a>
     </div>
 </body>
 </html>
