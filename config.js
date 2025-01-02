@@ -1,6 +1,6 @@
 // config.js
 const config = "main.html"; 
-const maintenanceMode = true; 
+const maintenanceMode = false; 
 
 if (maintenanceMode) {
     window.location.href = "https://m3sto.github.io/webm3sto/index.html";
