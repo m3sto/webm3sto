@@ -202,8 +202,14 @@
     <div class="footer">
         Copyright M3sto 2025
     </div>
-    <script src="config.js">if(maintanincemode){ window.location.href="bakim.html"}</script>
+    <script src="config.js"></script>
     <script>
+        window.onload = function() {
+            // Bakım modunu kontrol et
+            if (typeof maintenanceMode !== 'undefined' && maintenanceMode === true) {
+                window.location.href = "bakim.html";  // Bakım sayfasına yönlendir
+                return; // Bakım modunda olduğunda başka kodların çalışmasına gerek yok
+            }
         const menuIcon = document.getElementById('menuIcon');
         const menuPanel = document.getElementById('menuPanel');
 
