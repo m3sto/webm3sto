@@ -1,2 +1,3 @@
 // config.js
-const config = "bakim.html"; 
+const config = "main.html"; 
+const maintenanceMode = true; 
