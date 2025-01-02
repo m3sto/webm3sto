@@ -3,85 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iOS Ayarları</title>
+    <title>Bakımdayız!</title>
     <style>
+        @font-face {
+            font-family: 'Minecraftia';
+            src: url('fonts/Minecraftia.ttf') format('truetype');
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
             margin: 0;
-            padding: 20px;
+            background-color: #1e1e1e;
+            font-family: 'Minecraftia', 'Courier New', Courier, monospace;
+            color: #ffffff;
         }
+
         .container {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
+            display: flex;
+            align-items: center;
+            text-align: left;
         }
-        h2 {
-            font-weight: bold;
-            margin: 0;
+
+        .container img {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
         }
-        .toggle {
-            display: inline-block;
-            margin-left: 10px;
-            cursor: pointer;
+
+        .text {
+            font-size: 20px;
+            text-transform: uppercase;
+            line-height: 1.5;
         }
-        .message-box {
-            display: none;
-            background: #e7f3fe;
-            border-left: 6px solid #2196F3;
-            margin-top: 10px;
-            padding: 10px;
-            border-radius: 5px;
+
+        .text h1 {
+            font-size: 40px;
+            color: #ffcc00;
+            text-shadow: 2px 2px #000000;
         }
-        .button {
-            background-color: #007AFF;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+
+        .text p {
+            font-size: 20px;
+            color: #ff9999;
+            text-shadow: 1px 1px #000000;
         }
     </style>
 </head>
 <body>
-
-<div class="container">
-    <h2>🌐 WiFi</h2>
-    <label class="toggle">
-        <input type="checkbox" id="wifiToggle"> Aktif
-    </label>
-    <div id="wifiMessage" class="message-box">
-        WiFi bulunamıyor, cihaz güzelliğiniz dolayısıyla aklını kaybetmiş :)
-        <button class="button" onclick="closeMessage('wifiMessage')">Tamam</button>
+    <div class="container">
+        <img src="https://i.pinimg.com/originals/80/7b/5c/807b5c4b02e765bb4930b7c66662ef4b.gif" alt="GIF">
+        <div class="text">
+            <h1>Bakımdayız!</h1>
+            <p>Web sitemiz kısa bir süreliğine bakıma alınmıştır. Çok yakında gözlerdeyiz :).</p>
+        </div>
     </div>
-    
-    <h2>🌸 Çiçek Diyarı</h2>
-    <label class="toggle">
-        <input type="checkbox" id="flowerToggle"> Aktif
-    </label>
-    <div id="flowerMessage" class="message-box">
-        Siz varken başka çiçek bulunamadı :) 💐🌹
-        <button class="button" onclick="closeMessage('flowerMessage')">Tamam</button>
-    </div>
-</div>
-
-<script>
-    document.getElementById('wifiToggle').addEventListener('change', function() {
-        const messageBox = document.getElementById('wifiMessage');
-        messageBox.style.display = this.checked ? 'block' : 'none';
-    });
-
-    document.getElementById('flowerToggle').addEventListener('change', function() {
-        const messageBox = document.getElementById('flowerMessage');
-        messageBox.style.display = this.checked ? 'block' : 'none';
-    });
-
-    function closeMessage(id) {
-        document.getElementById(id).style.display = 'none';
-        document.querySelector(`#${id.replace('Message', 'Toggle')}`).checked = false;
-    }
-</script>
-
 </body>
 </html>
