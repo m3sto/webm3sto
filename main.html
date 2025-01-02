@@ -1,10 +1,5 @@
 <!DOCTYPE html>
 <html lang="tr">
-    <script src="config.js">
-    if (maintenanceMode) {
-        window.location.href = "bakim.html";
-    }
-    </script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -207,7 +202,10 @@
         Copyright M3sto 2025
     </div>
 
-    <script>
+    <script src="config.js">
+        if (maintenanceMode) {
+        window.location.href = "bakim.html";
+        }
         const menuIcon = document.getElementById('menuIcon');
         const menuPanel = document.getElementById('menuPanel');
 
