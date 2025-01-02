@@ -5,17 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M3sto Web Panel</title>
 
-    <!-- Fontu ekleyin -->
-    <link rel="stylesheet" href="Minecrafta.ttf">
-    
+    <!-- Fontu yerel dosyadan ekleyin -->
     <style>
+        @font-face {
+            font-family: 'Minecraftia';
+            src: url('Minecraftia.ttf') format('truetype');
+        }
+
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0; /* Arka plan rengi */
+            background-color: #ffffff; /* Arka plan rengi beyaz */
             font-family: 'Minecraftia', sans-serif; /* Font ayarı */
             text-align: center; /* Metin ortalamak için */
         }
@@ -63,8 +66,9 @@
 <body>
     <div class="container">
         <h1>M3sto Web Panel</h1>
-        <img src="ld.gif" alt="Yükleniyor">
         <h2>Yönlendiriliyorsunuz...</h2>
+        <img src="ld.gif" alt="Yükleniyor"> <!-- Yüklenme animasyonu için ld.gif kullanıldı -->
+        
     </div>
 </body>
 </html>
