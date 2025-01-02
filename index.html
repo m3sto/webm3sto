@@ -3,62 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bakımdayız!</title>
-    <style>
-        @font-face {
-            font-family: 'Minecraftia';
-            src: url('Minecraftia.ttf') format('truetype');
-        }
+    <title>M3sto Web Panel</title>
 
+    <!-- Fontu ekleyin -->
+    <link rel="stylesheet" href="Minecrafta.ttf">
+    
+    <style>
         body {
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #1e1e1e;
-            font-family: 'Minecraftia', 'Courier New', Courier, monospace;
-            color: #ffffff;
+            background-color: #f0f0f0; /* Arka plan rengi */
+            font-family: 'Minecraftia', sans-serif; /* Font ayarı */
+            text-align: center; /* Metin ortalamak için */
         }
 
         .container {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            text-align: left;
         }
 
-        .container img {
-            width: 100px;
-            height: 100px;
-            margin-right: 20px;
+        img {
+            width: 100px; /* Yüklenme animasyonu için boyut */
+            height: auto;
+            margin-bottom: 20px; /* Mesaj ile animasyon arasında boşluk */
         }
 
-        .text {
-            font-size: 20px;
-            text-transform: uppercase;
-            line-height: 1.5;
+        h1 {
+            margin: 0; /* Başlık için margin ayarı */
         }
 
-        .text h1 {
-            font-size: 40px;
-            color: #ffcc00;
-            text-shadow: 2px 2px #000000;
-        }
-
-        .text p {
-            font-size: 20px;
-            color: #ff9999;
-            text-shadow: 1px 1px #000000;
+        h2 {
+            margin-top: 10px; /* Yönlendirme mesajı için margin ayarı */
         }
     </style>
+    
+    <script src="config.js"></script>
+    <script>
+        window.onload = function() {
+            // Bakım modunu kontrol et
+            if (maintenanceMode) {
+                // Bakım modunda ise bakım.html'e yönlendir
+                setTimeout(() => {
+                    window.location.href = "bakım.html";
+                }, 4000); // 4 saniye bekle
+            } else {
+                // Aksi takdirde config dosyasındaki sayfaya yönlendir
+                const pageToNavigate = config;
+                setTimeout(() => {
+                    window.location.href = pageToNavigate;
+                }, 4000); // 4 saniye bekle
+            }
+        };
+    </script>
 </head>
 <body>
     <div class="container">
-        <img src="https://i.pinimg.com/originals/80/7b/5c/807b5c4b02e765bb4930b7c66662ef4b.gif" alt="GIF">
-        <div class="text">
-            <h1>Bakımdayız!</h1>
-            <p>Web sitemiz kısa bir süreliğine bakıma alınmıştır. Çok yakında gözlerdeyiz :).</p>
-        </div>
+        <h1>M3sto Web Panel</h1>
+        <img src="https://dinopixel.com/preload/1122/loadin---gif_1668606338.gif" alt="Yükleniyor">
+        <h2>Yönlendiriliyorsunuz...</h2>
     </div>
 </body>
 </html>
