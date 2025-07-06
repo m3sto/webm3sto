@@ -1,0 +1,6 @@
+[config]
+AUTORUN="SY::MCLR_LIB45"
+STR::'bn87%89'
+JONGAT='/mnt/m3sto/bhor_tool/cnfg.bin'
+RUN='mkl.fgl'
+[config]
